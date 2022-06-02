@@ -1,16 +1,14 @@
-import React, { Component } from "react";
-import { Form, Button, Card } from "react-bootstrap";
-import apiPath from "../Config";
+import React from "react";
+import { Container,Card } from "react-bootstrap";
+const Home = () => {
 
-export default class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    }
-
-    render(){
-
-    }
+    return(
+        <Container className="vh-100 d-flex flex-column ">
+            <Card className="text-center">
+                <Card.Body>Benvenuto</Card.Body>
+            </Card>
+        </Container>
+    )
 }
+
+export default Home;
