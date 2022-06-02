@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom"
 export const ReqAuth = ({children}) => {
     //const auth = useAuth()
 
-  if (!sessionStorage.getItem('user')) {
+  if (!sessionStorage.getItem('token')) {
         return <Navigate to="/login"/>
     }
 

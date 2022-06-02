@@ -4,11 +4,10 @@ import {apiPath} from "../Config";
 const AuthContext = createContext(null)
 
 export const AuthProvider = ({children}) => {
-    const[user, setUser] = useState(null)
     const navigate = useNavigate()
 
     const login = (email,password) => {
-        fetch(apiPath + "/user/login",{
+        fetch(apiPath + "/api/user/login",{
             method: "POST",
             body: JSON.stringify({
             email: email,
@@ -26,9 +25,7 @@ export const AuthProvider = ({children}) => {
         })
         .then((res) => {
             if(res){
-             //   setUser(username)
-               // sessionStorage.setItem('user',username)
-                console.log("ok")
+                sessionStorage.setItem('token',res.accessToken)
             }else{
                 console.log("username o password non corrette")
             }
@@ -41,12 +38,11 @@ export const AuthProvider = ({children}) => {
 
 
     const logout = () => {
-        setUser()
-        sessionStorage.removeItem('user')
+        sessionStorage.removeItem('token')
     }
 
     return(
-        <AuthContext.Provider value={{user, login, logout}}>
+        <AuthContext.Provider value={{login, logout}}>
             {children}
         </AuthContext.Provider>
     )

@@ -14,7 +14,7 @@ const Signup = () => {
   
 
   const registerUser = (email,password,name,role) => {
-    fetch(apiPath + "/user/register",{
+    fetch(apiPath + "/api/user/register",{
         method: "POST",
         body: JSON.stringify({
         email: email,
@@ -51,7 +51,7 @@ const Signup = () => {
           <form>
             <p className="h4 text-center mb-4">Sign up</p>
             <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
-              Your username
+              Your email
             </label>
             <input
               id="defaultFormLoginEmailEx"
